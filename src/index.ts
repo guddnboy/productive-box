@@ -87,10 +87,10 @@ interface IRepo {
   if (!sum) return;
 
   const oneDay = [
-    { label: '🌞 Morning', commits: morning },
-    { label: '🌆 Daytime', commits: daytime },
-    { label: '🌃 Evening', commits: evening },
-    { label: '🌙 Night', commits: night },
+    { label: '🌞 Morning(06:00 - 12:00)', commits: morning },
+    { label: '🌆 Daytime(12:00 - 18:00)', commits: daytime },
+    { label: '🌃 Evening(18:00 - 24:00)', commits: evening },
+    { label: '🌙 Night(00:00 - 06:00)', commits: night },
   ];
 
   const lines = oneDay.reduce((prev, cur) => {
@@ -99,7 +99,7 @@ interface IRepo {
       `${cur.label}`.padEnd(10),
       `${cur.commits.toString().padStart(5)} commits`.padEnd(14),
       generateBarChart(percent, 21),
-      String(percent.toFixed(1)).padStart(5) + '%',
+      // String(percent.toFixed(1)).padStart(5) + '%',
     ];
 
     return [...prev, line.join(' ')];
